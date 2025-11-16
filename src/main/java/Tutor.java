@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Guardian {
+public class Tutor {
     private Integer id;
     private String firstname;
     private String lastname;
@@ -9,7 +9,7 @@ public class Guardian {
     private String telephone;
     private String linkDescription;
 
-    public Guardian(Integer id, String firstname, String lastname, LocalDate dateOfBirth, String email, String telephone, String linkDescription) {
+    public Tutor(Integer id, String firstname, String lastname, LocalDate dateOfBirth, String email, String telephone, String linkDescription) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;

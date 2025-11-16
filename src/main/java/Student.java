@@ -9,9 +9,9 @@ public class Student {
     private String email;
     private String telephone;
     private String group;
-    private Guardian guardian;
+    private Tutor tutor;
 
-    public Student(Integer id, String firstname, String lastname, LocalDate dateOfBirth, String email, String telephone, String group, Guardian guardian) {
+    public Student(Integer id, String firstname, String lastname, LocalDate dateOfBirth, String email, String telephone, String group, Tutor tutor) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -19,7 +19,7 @@ public class Student {
         this.email = email;
         this.telephone = telephone;
         this.group = group;
-        this.guardian = guardian;
+        this.tutor = tutor;
     }
 
     public Integer getId() {
@@ -78,24 +78,24 @@ public class Student {
         this.group = group;
     }
 
-    public Guardian getGuardian() {
-        return guardian;
+    public Tutor getGuardian() {
+        return tutor;
     }
 
-    public void setGuardian(Guardian guardian) {
-        this.guardian = guardian;
+    public void setGuardian(Tutor tutor) {
+        this.tutor = tutor;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(id, student.id) && Objects.equals(firstname, student.firstname) && Objects.equals(lastname, student.lastname) && Objects.equals(dateOfBirth, student.dateOfBirth) && Objects.equals(email, student.email) && Objects.equals(telephone, student.telephone) && Objects.equals(group, student.group) && Objects.equals(guardian, student.guardian);
+        return Objects.equals(id, student.id) && Objects.equals(firstname, student.firstname) && Objects.equals(lastname, student.lastname) && Objects.equals(dateOfBirth, student.dateOfBirth) && Objects.equals(email, student.email) && Objects.equals(telephone, student.telephone) && Objects.equals(group, student.group) && Objects.equals(tutor, student.tutor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname, dateOfBirth, email, telephone, group, guardian);
+        return Objects.hash(id, firstname, lastname, dateOfBirth, email, telephone, group, tutor);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class Student {
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", group='" + group + '\'' +
-                ", guardian=" + guardian +
+                ", guardian=" + tutor +
                 '}';
     }
 }
