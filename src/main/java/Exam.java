@@ -1,5 +1,6 @@
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Exam {
     private Integer id;
@@ -7,13 +8,15 @@ public class Exam {
     private Subject subject;
     private LocalDateTime dateTime;
     private Integer coefficient;
+    private List<Grade> grades;
 
-    public Exam(Integer id, String title, Subject subject, LocalDateTime dateTime, Integer coefficient) {
+    public Exam(Integer id, String title, Subject subject, LocalDateTime dateTime, Integer coefficient, List<Grade> grades) {
         this.id = id;
         this.title = title;
         this.subject = subject;
         this.dateTime = dateTime;
         this.coefficient = coefficient;
+        this.grades = grades;
     }
 
     public Integer getId() {
@@ -54,5 +57,13 @@ public class Exam {
 
     public void setCoefficient(Integer coefficient) {
         this.coefficient = coefficient;
+    }
+
+    public List<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(List<Grade> grades) {
+        this.grades = grades;
     }
 }

@@ -1,4 +1,6 @@
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Student {
@@ -110,5 +112,26 @@ public class Student {
                 ", group='" + group + '\'' +
                 ", guardian=" + tutor +
                 '}';
+    }
+
+    double getExamGrade(Exam exam, Student student, Instant t) {
+        return exam.getGrades()
+                .stream()
+                .filter(grade -> grade.getStudent().equals(student))
+                .findFirst() // pour récupérer le Grade dans le stream de filter et retourner un Optional Grade
+                // flatMap pour aplatir car map retourne un Optional dans un autre Oprional
+                .flatMap(grade -> grade.getGradeHistoryList()
+                    .stream()
+                    .filter(gradeHistory -> gradeHistory.getStartChange().isBefore(t))
+                        .max(Comparator.comparing(GradeHistory::getStartChange))
+                        .map(GradeHistory::getNewGrade)
+                )
+                .orElse(0.0);
+    }
+
+
+
+    public static void main(String[] args) {
+
     }
 }
