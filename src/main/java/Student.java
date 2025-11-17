@@ -130,6 +130,16 @@ public class Student {
                 .orElse(0.0);
     }
 
+    double getCourseGrade(Exam exam, Student student, Instant t) {
+        double courseGrade = 0.0;
+
+        double examGrade = getExamGrade(exam, student, t);
+        int coeff = exam.getCoefficient();
+
+        courseGrade += coeff * examGrade;
+
+        return courseGrade;
+    }
 
 
     public static void main(String[] args) {
@@ -204,6 +214,8 @@ public class Student {
                 2,
                 List.of(grade1)
         );
+
+        System.out.println(Liam.getCourseGrade(exam1, Liam, Instant.parse("2025-01-01T08:00:00Z")));
 
         System.out.println(Liam.getExamGrade(exam1, Liam, Instant.parse("2025-01-03T00:00:00Z")));
         System.out.println(Liam.getExamGrade(exam1, Liam, Instant.parse("2025-01-07T00:00:00Z")));
