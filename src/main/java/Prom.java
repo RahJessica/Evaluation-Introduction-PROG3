@@ -1,5 +1,5 @@
-import java.util.List;
+    import java.util.List;
 
-public class Prom {
-    private List<Group> groups;
-}
+    public class Prom {
+        private List<Group> groups;
+    }

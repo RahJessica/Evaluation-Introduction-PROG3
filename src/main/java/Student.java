@@ -1,6 +1,7 @@
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
 public class Student {
@@ -133,5 +134,80 @@ public class Student {
 
     public static void main(String[] args) {
 
+        Tutor tutor1 = new Tutor(
+                1,
+                "Jeanne",
+                "Randria",
+                LocalDate.of(2004, 8, 11),
+                "jeanne@gmail.com",
+                "0331178906",
+                "Tante de Liam"
+        );
+
+        Student Liam = new Student(
+                1,
+                "Liam",
+                "Rafalimanana",
+                LocalDate.of(1998, 12, 1),
+                "liam@gmail.com",
+                "0345690833",
+                "K3",
+                tutor1
+        );
+
+        Teacher teacher1 = new Teacher(
+                1,
+                "Ryan",
+                "Ryan",
+                LocalDate.of(1985, 3, 2),
+                "ryan@mail.hei.school",
+                "0341122334",
+                "POO"
+        );
+
+        Subject subjectProg3 = new Subject(
+                1,
+                "PROG3",
+                5,
+                teacher1
+        );
+
+        GradeHistory gradeHistory_1 = new GradeHistory(
+                Instant.parse("2025-01-01T08:00:00Z"),
+                12.0,
+                "Correction de l'enseignant"
+        );
+
+        GradeHistory gradeHistory_2 = new GradeHistory(
+                Instant.parse("2025-01-05T10:00:00Z"),
+                14.5,
+                "Rattrapage"
+        );
+
+        GradeHistory gradeHistory_3 = new GradeHistory(
+                Instant.parse("2025-01-10T09:30:00Z"),
+                16.0,
+                "BONUS projet"
+        );
+
+        Grade grade1 = new Grade(
+                Liam,
+                10.0,
+                List.of(gradeHistory_1, gradeHistory_2, gradeHistory_3)
+        );
+
+        Exam exam1 = new Exam(
+                1,
+                "Examen PROG3 - Session 1",
+                subjectProg3,
+                Instant.parse("2025-01-02T08:00:00Z"),
+                2,
+                List.of(grade1)
+        );
+
+        System.out.println(Liam.getExamGrade(exam1, Liam, Instant.parse("2025-01-03T00:00:00Z")));
+        System.out.println(Liam.getExamGrade(exam1, Liam, Instant.parse("2025-01-07T00:00:00Z")));
+        System.out.println(Liam.getExamGrade(exam1, Liam, Instant.parse("2025-01-11T00:00:00Z")));
     }
+
 }

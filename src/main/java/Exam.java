@@ -1,4 +1,5 @@
 import java.time.DateTimeException;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -6,11 +7,11 @@ public class Exam {
     private Integer id;
     private String title;
     private Subject subject;
-    private LocalDateTime dateTime;
+    private Instant dateTime;
     private Integer coefficient;
     private List<Grade> grades;
 
-    public Exam(Integer id, String title, Subject subject, LocalDateTime dateTime, Integer coefficient, List<Grade> grades) {
+    public Exam(Integer id, String title, Subject subject, Instant dateTime, Integer coefficient, List<Grade> grades) {
         this.id = id;
         this.title = title;
         this.subject = subject;
@@ -43,11 +44,11 @@ public class Exam {
         this.subject = subject;
     }
 
-    public LocalDateTime getDateTime() {
+    public Instant getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(Instant dateTime) {
         this.dateTime = dateTime;
     }
 
